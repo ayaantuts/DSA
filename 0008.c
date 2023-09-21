@@ -42,7 +42,7 @@ void delete(int data) {
 		return;
 	}
 	struct Node* temp = start;
-	while(temp->next == NULL || temp->next->data != data) {
+	while(temp->next != NULL || temp->next->data != data) {
 		temp = temp->next;
 	}
 	if (temp->next == NULL) {
