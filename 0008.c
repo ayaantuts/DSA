@@ -31,6 +31,11 @@ void delete(int data) {
 	}
 	struct Node* del;
 	if (start->data == data) {
+		if (start->next == NULL) {
+			free(start);
+			start = NULL;
+			return;
+		}
 		del = start;
 		start = start->next;
 		free(del);
