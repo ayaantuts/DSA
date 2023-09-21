@@ -69,6 +69,7 @@ void display() {
 }
 
 int main() {
+	start = NULL;
 	int choice, data;
 	do {
 		printf("\n1. Insert\n2. Delete\n3. Print\n4. Exit\nEnter a choice: ");
