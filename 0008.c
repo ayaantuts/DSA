@@ -124,6 +124,7 @@ int main() {
 				break;
 			default:
 				printf("Invalid choice\n");
+				choice = 6;
 		}
 	} while (choice != 6);
 	return 0;
