@@ -18,5 +18,6 @@ Filename | Content
 [0012](./0012.c) | Reverse a Linked List (using recursion)
 [0013](./0013.c) | Reverse a sentence without reversing the words using stack
 [0014](./0014.c) | Find n-th element from end of Linked List (using recursion)
+[0015](./0015.c) | Merge two linked lists
 
 ## [ReadMe.md](./ReadMe.md)
