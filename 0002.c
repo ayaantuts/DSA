@@ -30,7 +30,7 @@ char pop() {
 }
 
 char peek() {
-	int x = -1;
+	char x = -1;
 	if (top == -1) {
 		printf("\nStack underflow\n");
 	}
