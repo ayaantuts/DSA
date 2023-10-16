@@ -17,5 +17,6 @@ Filename | Content
 [0011](./0011.c) | Addition of two numbers using Linked list for representation
 [0012](./0012.c) | Reverse a Linked List (using recursion)
 [0013](./0013.c) | Reverse a sentence without reversing the words using stack
+[0014](./0014.c) | Find n-th element from end of Linked List (using recursion)
 
 ## [ReadMe.md](./ReadMe.md)
