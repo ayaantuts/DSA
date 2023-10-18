@@ -53,6 +53,7 @@ void insertBegin() {
 	scanf("%d", &data);
 	nn->data = data;
 	nn->prev = NULL;
+	nn->next = NULL;
 	if (!start)
 		start = nn;
 	else {
