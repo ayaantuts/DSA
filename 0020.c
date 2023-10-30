@@ -66,6 +66,7 @@ void postorder(sn* temp) {
 }
 
 int main() {
+	root->left = root->right = NULL;
 	createBST();
 	printf("\nInorder: ");
 	inorder(root);
