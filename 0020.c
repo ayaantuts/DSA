@@ -51,16 +51,16 @@ void preorder(sn* temp) {
 
 void inorder(sn* temp) {
 	if (temp != NULL) {
-		preorder(temp->left);
+		inorder(temp->left);
 		printf("%d ", temp->data);
-		preorder(temp->right);
+		inorder(temp->right);
 	}
 }
 
 void postorder(sn* temp) {
 	if (temp != NULL) {
-		preorder(temp->left);
-		preorder(temp->right);
+		postorder(temp->left);
+		postorder(temp->right);
 		printf("%d ", temp->data);
 	}
 }
@@ -75,17 +75,3 @@ int main() {
 	preorder(root);
 	printf("\n");
 }
-
-// Input:
-// 6
-// 10 2 12 0 8 11
-
-// Output:
-// Inorder: 2 0 8 10 12 11 
-// Postorder: 2 0 8 12 11 10 
-// Preorder: 10 2 0 8 12 11 
-
-// Expected Output:
-// Inorder: 0 2 8 10 11 12
-// Postorder: 0 8 2 11 12 10
-// Preorder: 10 2 0 8 12 11
