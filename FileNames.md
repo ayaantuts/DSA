@@ -20,5 +20,9 @@ Filename | Content
 [0014](./0014.c) | Find n-th element from end of Linked List (using recursion)
 [0015](./0015.c) | Merge two linked lists
 [0016](./0016.c) | Implement Doubly Linked List
+[0017](./0017.c) | Implement DFS
+[0018]() | Implement BFS (in progress)
+[0019]() | Implement Topological Sort (in progress)
+[0020](./0020.c) | Implement BST
 
 ## [ReadMe.md](./ReadMe.md)
