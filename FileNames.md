@@ -24,11 +24,5 @@ Filename | Content
 [0018](./0018.c) | Implement BFS
 [0019]() | Implement Topological Sort (in progress)
 [0020](./0020.c) | Implement BST
-[0021](./0021.c) | Implement linear search
-[0022](./0022.c) | Implement binary search
-[0023]() | Implement fibonacci search (in progress)
-[0024](./0024.c) | Implement bubble sort
-[0025](./0025.c) | Implement selection sort
-[0026](./0026.c) | Implement insertion sort
 
 ## [ReadMe.md](./ReadMe.md)
