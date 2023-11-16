@@ -93,10 +93,16 @@ void deleteNode() {
 			
 		}
 		else if (!temp->right) {
-			parent->left = temp->left;
+			if (parent->left == temp)
+				parent->left = temp->left;
+			else
+				parent->right = temp->left;
 		}
 		else if (!temp->left) {
-			parent->right = temp->right;
+			if (parent->left == temp)
+				parent->left = temp->right;
+			else
+				parent->right = temp->right;
 		}
 		else {
 			parent = temp;
@@ -199,7 +205,7 @@ int main() {
 				printf("\nThe number of internal nodes are: %d", internalNodes(root));
 				break;
 			case 8:
-				printf("\nThe number of external nodes are: %d", externalNodes(root));
+				printf("\nThe number of external nodes are: %d", externalNodes());
 				break;
 			case 9:
 				printf("\nThe number of total nodes are: %d", totalNodes(root));
