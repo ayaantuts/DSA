@@ -30,5 +30,6 @@ Filename | Content
 [0024](./0024.c) | Implement bubble sort
 [0025](./0025.c) | Implement selection sort
 [0026](./0026.c) | Implement insertion sort
+[0027](./0027.c) | Create Expressions Tree from Postfix Expression
 
 ## [ReadMe.md](./ReadMe.md)
