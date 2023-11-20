@@ -137,17 +137,17 @@ int totalNodes(sn* temp) {
 		return totalNodes(temp->left) + totalNodes(temp->right) + 1;
 }
 
-int internalNodes(sn* temp) {
+int externalNodes(sn* temp) {
 	if (!temp)
 		return 0;
 	else if (!temp->left && !temp->right)
 		return 1;
 	else
-		return internalNodes(temp->left) + internalNodes(temp->right);
+		return externalNodes(temp->left) + externalNodes(temp->right);
 }
 
-int externalNodes() {
-	return totalNodes(root) - internalNodes(root);
+int internalNodes(sn* root) {
+	return totalNodes(root) - externalNodes(root);
 }
 
 void preOrder(sn* temp) {
@@ -205,7 +205,7 @@ int main() {
 				printf("\nThe number of internal nodes are: %d", internalNodes(root));
 				break;
 			case 8:
-				printf("\nThe number of external nodes are: %d", externalNodes());
+				printf("\nThe number of external nodes are: %d", externalNodes(root));
 				break;
 			case 9:
 				printf("\nThe number of total nodes are: %d", totalNodes(root));
