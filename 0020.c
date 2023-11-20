@@ -50,7 +50,7 @@ void insert() {
 	newnode->left = newnode->right = NULL;
 	parent = temp = root;
 	if (!root)
-		root = temp;
+		root = newnode;
 
 	else {
 		while (temp) {
