@@ -111,7 +111,10 @@ void deleteNode() {
 				parent = pred;
 				pred = pred->right;
 			}
-			parent->right = pred->left;
+			if (parent->left == pred)
+				parent->left = pred->left;
+			else
+				parent->right = pred->left;
 			temp->data = pred->data;
 			temp = pred;
 		}
