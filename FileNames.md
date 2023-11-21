@@ -26,7 +26,7 @@ Filename | Content
 [0020](./0020.c) | Implement BST
 [0021](./0021.c) | Implement linear search
 [0022](./0022.c) | Implement binary search
-[0023]() | Implement fibonacci search (in progress)
+[0023](./0023.c) | Implement fibonacci search
 [0024](./0024.c) | Implement bubble sort
 [0025](./0025.c) | Implement selection sort
 [0026](./0026.c) | Implement insertion sort
