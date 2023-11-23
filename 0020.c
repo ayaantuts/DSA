@@ -153,6 +153,20 @@ int internalNodes(sn* root) {
 	return totalNodes(root) - externalNodes(root);
 }
 
+int height(sn* temp) {
+	int l, r;
+	if (!temp)
+		return 0;
+	else {
+		l = height(temp->left);
+		r = height(temp->right);
+		if (l > r)
+			return l + 1;
+		else
+			return r + 1;
+	}
+}
+
 void preOrder(sn* temp) {
 	if (temp) {
 		printf("%d ", temp->data);
@@ -183,7 +197,18 @@ int main() {
 	// clrscr();
 	create();
 	do {
-		printf("\n1. Insert\n2. Delete\n3. Preorder\n4. Inorder\n5. Postorder\n6. Mirror\n7. Count Internal\n8. Count External\n9. Count Total\n10. Exit\nEnter your choice: ");
+		printf("\n1. Insert");
+		printf("\n2. Delete");
+		printf("\n3. Preorder");
+		printf("\n4. Inorder");
+		printf("\n5. Postorder");
+		printf("\n6. Mirror");
+		printf("\n7. Count Internal");
+		printf("\n8. Count External");
+		printf("\n9. Count Total");
+		printf("\n10. Height");
+		printf("\n11. Exit");
+		printf("\nEnter your choice: ");
 		scanf("%d", &choice);
 		switch (choice) {
 			case 1:
@@ -214,12 +239,15 @@ int main() {
 				printf("\nThe number of total nodes are: %d", totalNodes(root));
 				break;
 			case 10:
+				printf("\nThe height of the tree is: %d", height(root));
+				break;
+			case 11:
 				break;
 			default:
 				printf("Invalid choice");
-				choice = 10;
+				choice = 11;
 		}
-	} while (choice != 10);
+	} while (choice != 11);
 	// getch();
 	return 0;
 }
