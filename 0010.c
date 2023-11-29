@@ -1,4 +1,4 @@
-// Implement Polynomial addition using Linked List
+// Implement Polynomial addition and subtraction using Linked List
 #include <stdio.h>
 #include <malloc.h>
 
