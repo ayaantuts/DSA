@@ -13,7 +13,7 @@ Filename | Content
 [0007](./0007.c) | Menu-driven program to implement deque using array
 [0008](./0008.c) | Implement Singly Linked List
 [0009]() | Implement Circular Linked List (in progress)
-[0010](./0010.c) | Implement Polynomial addition using Linked List
+[0010](./0010.c) | Implement Polynomial addition and subtraction using Linked List
 [0011](./0011.c) | Addition of two numbers using Linked list for representation
 [0012](./0012.c) | Reverse a Linked List (using recursion)
 [0013](./0013.c) | Reverse a sentence without reversing the words using stack
