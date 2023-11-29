@@ -5,7 +5,7 @@
 struct Node {
 	int coeff, pow;
 	struct Node *next;
-} *start1, *start2, *start3;
+} *start1, *start2, *start3, *start4;
 
 struct Node* createLL(struct Node* start) {
 	int i, n, coeff, pow;
@@ -30,7 +30,7 @@ struct Node* createLL(struct Node* start) {
 }
 
 void insertEnd(struct Node* temp, int c, int p) {
-	struct Node *newnode = (struct Node*) malloc(sizeof(struct Node*)), *ptr = temp;
+	struct Node *newnode = (struct Node*) malloc(sizeof(struct Node)), *ptr = temp;
 	newnode->coeff = c;
 	newnode->pow = p;
 	if (!temp)
@@ -73,6 +73,35 @@ struct Node* addIt() {
 	return t3;
 }
 
+struct Node* subIt() {
+	struct Node *t1 = start1, *t2 = start2, *t3 = start4;
+	while(t1 && t2) {
+		if (t1->pow > t2->pow) {
+			insertEnd(t3, t1->coeff, t1->pow);
+			t1 = t1->next;
+		}
+		else if (t1->pow < t2->pow) {
+			insertEnd(t3, t2->coeff, t2->pow);
+			t2 = t2->next;
+		}
+		else {
+			insertEnd(t3, t1->coeff - t2->coeff, t1->pow);
+			t1 = t1->next;
+			t2 = t2->next;
+		}
+	}
+	while (t1) {
+		insertEnd(t3, t1->coeff, t1->pow);
+		t1 = t1->next;
+	}
+	
+	while (t2) {
+		insertEnd(t3, t2->coeff, t2->pow);
+		t2 = t2->next;
+	}
+	return t3;
+}
+
 struct Node* display(struct Node* start) {
 	printf("\n%dx%d", start->coeff, start->pow);
 	struct Node* temp = start->next;
@@ -92,8 +121,12 @@ int main() {
 	start1 = createLL(start1);
 	start2 = createLL(start2);
 	start3 = addIt();
+	start4 = subIt();
 	display(start1);
 	display(start2);
+	printf("\nAddition: ");
 	display(start3);
+	printf("\nSubtraction: ");
+	display(start4);
 	return 0;
 }
