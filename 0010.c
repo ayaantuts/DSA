@@ -29,22 +29,6 @@ struct Node* createLL(struct Node* start) {
 	return start;
 }
 
-// struct Node* insertEnd(struct Node* start, int c, int p) {
-// 	struct Node *newnode, *temp = start;
-// 	newnode = (struct Node*) malloc(sizeof(struct Node));
-// 	newnode->coeff = c;
-// 	newnode->pow = p;
-// 	if (!start)
-// 		start = newnode;
-// 	else {
-// 		while (temp->next != NULL)
-// 			temp = temp->next;
-// 		temp->next = newnode;
-// 	}
-// 	newnode->next = NULL;
-// 	return start;
-// }
-
 struct Node* createNode(int c, int p) {
 	struct Node *newnode;
 	newnode = (struct Node*) malloc(sizeof(struct Node));
