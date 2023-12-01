@@ -29,60 +29,46 @@ struct Node* createLL(struct Node* start) {
 	return start;
 }
 
-void insertEnd3(int c, int p) {
-	struct Node *newnode, *temp = start3;
+struct Node* insertEnd(struct Node* start, int c, int p) {
+	struct Node *newnode, *temp = start;
 	newnode = (struct Node*) malloc(sizeof(struct Node));
 	newnode->coeff = c;
 	newnode->pow = p;
-	if (!start3)
-		start3 = newnode;
+	if (!start)
+		start = newnode;
 	else {
 		while (temp->next != NULL)
 			temp = temp->next;
 		temp->next = newnode;
 	}
 	newnode->next = NULL;
-}
-
-void insertEnd4(int c, int p) {
-	struct Node *newnode, *temp = start4;
-	newnode = (struct Node*) malloc(sizeof(struct Node));
-	newnode->coeff = c;
-	newnode->pow = p;
-	if (!start4)
-		start4 = newnode;
-	else {
-		while (temp->next != NULL)
-			temp = temp->next;
-		temp->next = newnode;
-	}
-	newnode->next = NULL;
+	return start;
 }
 
 void addIt() {
 	struct Node *t1 = start1, *t2 = start2;
 	while(t1 && t2) {
 		if (t1->pow > t2->pow) {
-			insertEnd3(t1->coeff, t1->pow);
+			start3 = insertEnd(start3, t1->coeff, t1->pow);
 			t1 = t1->next;
 		}
 		else if (t1->pow < t2->pow) {
-			insertEnd3(t2->coeff, t2->pow);
+			start3 = insertEnd(start3, t2->coeff, t2->pow);
 			t2 = t2->next;
 		}
 		else {
-			insertEnd3(t1->coeff + t2->coeff, t1->pow);
+			start3 = insertEnd(start3, t1->coeff + t2->coeff, t1->pow);
 			t1 = t1->next;
 			t2 = t2->next;
 		}
 	}
 	while (t1) {
-		insertEnd3(t1->coeff, t1->pow);
+		start3 = insertEnd(start3, t1->coeff, t1->pow);
 		t1 = t1->next;
 	}
 	
 	while (t2) {
-		insertEnd3(t2->coeff, t2->pow);
+		start3 = insertEnd(start3, t2->coeff, t2->pow);
 		t2 = t2->next;
 	}
 }
@@ -91,26 +77,26 @@ void subIt() {
 	struct Node *t1 = start1, *t2 = start2;
 	while(t1 && t2) {
 		if (t1->pow > t2->pow) {
-			insertEnd4(t1->coeff, t1->pow);
+			start4 = insertEnd(start4, t1->coeff, t1->pow);
 			t1 = t1->next;
 		}
 		else if (t1->pow < t2->pow) {
-			insertEnd4(-1 * t2->coeff, t2->pow);
+			start4 = insertEnd(start4, -1 * t2->coeff, t2->pow);
 			t2 = t2->next;
 		}
 		else {
-			insertEnd4(t1->coeff - t2->coeff, t1->pow);
+			start4 = insertEnd(start4, t1->coeff - t2->coeff, t1->pow);
 			t1 = t1->next;
 			t2 = t2->next;
 		}
 	}
 	while (t1) {
-		insertEnd4(t1->coeff, t1->pow);
+		start4 = insertEnd(start4, t1->coeff, t1->pow);
 		t1 = t1->next;
 	}
 	
 	while (t2) {
-		insertEnd4(-1 * t2->coeff, t2->pow);
+		start4 = insertEnd(start4, -1 * t2->coeff, t2->pow);
 		t2 = t2->next;
 	}
 }
