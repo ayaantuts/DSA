@@ -29,7 +29,7 @@ struct Node* createLL(struct Node* start) {
 	return start;
 }
 
-void insertEnd(struct Node* temp, int c, int p) {
+struct Node* insertEnd(struct Node* temp, int c, int p) {
 	struct Node *newnode = (struct Node*) malloc(sizeof(struct Node)), *ptr = temp;
 	newnode->coeff = c;
 	newnode->pow = p;
@@ -42,32 +42,33 @@ void insertEnd(struct Node* temp, int c, int p) {
 		ptr->next = newnode;
 	}
 	newnode->next = NULL;
+	return temp;
 }
 
 struct Node* addIt() {
 	struct Node *t1 = start1, *t2 = start2, *t3 = start3;
 	while(t1 && t2) {
 		if (t1->pow > t2->pow) {
-			insertEnd(t3, t1->coeff, t1->pow);
+			t3 = insertEnd(t3, t1->coeff, t1->pow);
 			t1 = t1->next;
 		}
 		else if (t1->pow < t2->pow) {
-			insertEnd(t3, t2->coeff, t2->pow);
+			t3 = insertEnd(t3, t2->coeff, t2->pow);
 			t2 = t2->next;
 		}
 		else {
-			insertEnd(t3, t1->coeff + t2->coeff, t1->pow);
+			t3 = insertEnd(t3, t1->coeff + t2->coeff, t1->pow);
 			t1 = t1->next;
 			t2 = t2->next;
 		}
 	}
 	while (t1) {
-		insertEnd(t3, t1->coeff, t1->pow);
+		t3 = insertEnd(t3, t1->coeff, t1->pow);
 		t1 = t1->next;
 	}
 	
 	while (t2) {
-		insertEnd(t3, t2->coeff, t2->pow);
+		t3 = insertEnd(t3, t2->coeff, t2->pow);
 		t2 = t2->next;
 	}
 	return t3;
@@ -77,47 +78,45 @@ struct Node* subIt() {
 	struct Node *t1 = start1, *t2 = start2, *t3 = start4;
 	while(t1 && t2) {
 		if (t1->pow > t2->pow) {
-			insertEnd(t3, t1->coeff, t1->pow);
+			t3 = insertEnd(t3, t1->coeff, t1->pow);
 			t1 = t1->next;
 		}
 		else if (t1->pow < t2->pow) {
-			insertEnd(t3, t2->coeff, t2->pow);
+			t3 = insertEnd(t3, -1 * t2->coeff, t2->pow);
 			t2 = t2->next;
 		}
 		else {
-			insertEnd(t3, t1->coeff - t2->coeff, t1->pow);
+			t3 = insertEnd(t3, t1->coeff - t2->coeff, t1->pow);
 			t1 = t1->next;
 			t2 = t2->next;
 		}
 	}
 	while (t1) {
-		insertEnd(t3, t1->coeff, t1->pow);
+		t3 = insertEnd(t3, t1->coeff, t1->pow);
 		t1 = t1->next;
 	}
 	
 	while (t2) {
-		insertEnd(t3, t2->coeff, t2->pow);
+		t3 = insertEnd(t3, -1 * t2->coeff, t2->pow);
 		t2 = t2->next;
 	}
 	return t3;
 }
 
-struct Node* display(struct Node* start) {
-	printf("\n%dx%d", start->coeff, start->pow);
+void display(struct Node* start) {
+	printf("\n%dx^%d", start->coeff, start->pow);
 	struct Node* temp = start->next;
 	while (temp != NULL) {
-		if (temp->coeff < 0)
-			printf("-");
-		else
+		if (temp->coeff >= 0)
 			printf("+");
-		printf("%dx%d", temp->coeff, temp->pow);
+		printf("%dx^%d", temp->coeff, temp->pow);
 		temp = temp->next;
 	}
 	printf("\n");
 }
 
 int main() {
-	start1 = start2 = start3 = NULL;
+	start1 = start2 = start3 = start4 =  NULL;
 	start1 = createLL(start1);
 	start2 = createLL(start2);
 	start3 = addIt();
