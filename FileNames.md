@@ -31,5 +31,11 @@ Filename | Content
 [0025](./0025.c) | Implement selection sort
 [0026](./0026.c) | Implement insertion sort
 [0027](./0027.c) | Create Expressions Tree from Postfix Expression
+[0028](./0028.c) | Doubly Linked List
+[0029](./0029.c) | Detect cycle in singly linked list
+[0030](./0030.c) | Stack using Linked list
+[0031](./0031.c) | Queue using Linked list
+[0032](./0032.c) | Implement BFS and DFS menu-driven
+[0033](./0033.c) | Implement hashing techniques
 
 ## [ReadMe.md](./ReadMe.md)
