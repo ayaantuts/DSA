@@ -3,7 +3,7 @@
 ## Click any of the links to jump straight to the file
 
 Filename | Content
----: | :----
+--: | :--
 [0001](./0001.c) | Menu-driven program to implement stack using array
 [0002](./0002.c) | Infix to postfix using stack
 [0003](./0003.c) | Postfix evaluation using stack

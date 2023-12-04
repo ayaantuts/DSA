@@ -55,6 +55,7 @@ void display(sn* start) {
 int main() {
 	start = create(start);
 	display(start);
-	next(start)->next = NULL;
+	if (start)
+		next(start)->next = NULL;
 	display(rev);
 }
