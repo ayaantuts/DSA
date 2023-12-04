@@ -29,11 +29,11 @@ sn* create(sn* start) {
 }
 
 sn* next(sn* temp) {
-	if (temp->next == NULL) {
+	if (temp->next == NULL)
 		rev = temp;
-		return temp;
-	}
-	next(temp->next)->next = temp;
+
+	else
+		next(temp->next)->next = temp;
 	return temp;
 }
 
