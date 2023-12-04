@@ -111,6 +111,10 @@ void subIt() {
 }
 
 void display(struct Node* start) {
+	if (!start) {
+		printf("\nEmpty polynomial");
+		return;
+	}
 	printf("\n%dx^%d", start->coeff, start->pow);
 	struct Node* temp = start->next;
 	while (temp != NULL) {
