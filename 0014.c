@@ -31,15 +31,15 @@ sn* createLL() {
 
 int nthFromLast(sn* temp) {
 	int NumToGo;
-	if (temp->next == NULL) {
+	if (temp == NULL) {
 		return n;
 	}
 
 	NumToGo = nthFromLast(temp->next);
-	if (NumToGo > 1) {
+	if (NumToGo > 0) {
 		return --NumToGo;
 	}
-	else if (NumToGo == 1) {
+	else if (NumToGo == 0) {
 		printf("%d", temp->data);
 		return -1;
 	}
@@ -52,7 +52,7 @@ int main() {
 	createLL();
 	printf("N-th from last?: ");
 	scanf("%d", &n);
-	n -= 1;
+	n--;
 	nthFromLast(head);
 	return 0;
 }
