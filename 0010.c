@@ -7,17 +7,24 @@ struct Node {
 	struct Node *next;
 } *start1, *start2, *start3, *start4;
 
+struct Node* createNode(int c, int p) {
+	struct Node *newnode;
+	newnode = (struct Node*) malloc(sizeof(struct Node));
+	newnode->coeff = c;
+	newnode->pow = p;
+	newnode->next = NULL;
+	return newnode;
+}
+
 struct Node* createLL(struct Node* start) {
 	int i, n, coeff, pow;
 	struct Node *newnode, *temp = start;
 	printf("\nEnter the number of terms: ");
 	scanf("%d", &n);
 	for (i = 0; i < n; i++) {
-		newnode = (struct Node*) malloc(sizeof(struct Node));
 		printf("Enter the coefficient and power(separated by space): ");
 		scanf("%d %d", &coeff, &pow);
-		newnode->coeff = coeff;
-		newnode->pow = pow;
+		newnode = createNode(coeff, pow);
 		if (!start)
 			start = newnode;
 		else
@@ -27,15 +34,6 @@ struct Node* createLL(struct Node* start) {
 		newnode->next = NULL;
 	}
 	return start;
-}
-
-struct Node* createNode(int c, int p) {
-	struct Node *newnode;
-	newnode = (struct Node*) malloc(sizeof(struct Node));
-	newnode->coeff = c;
-	newnode->pow = p;
-	newnode->next = NULL;
-	return newnode;
 }
 
 void addIt() {
