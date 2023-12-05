@@ -22,7 +22,7 @@ Filename | Content
 [0016](./0016.c) | Implement Doubly Linked List
 [0017](./0017.c) | Implement DFS
 [0018](./0018.c) | Implement BFS
-[0019]() | Implement Topological Sort (in progress)
+[0019](./0019.c) | Implement Topological Sort
 [0020](./0020.c) | Implement BST
 [0021](./0021.c) | Implement linear search
 [0022](./0022.c) | Implement binary search
