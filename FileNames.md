@@ -37,5 +37,7 @@ Filename | Content
 [0031](./0031.c) | Queue using Linked list
 [0032](./0032.c) | Implement BFS and DFS menu-driven
 [0033](./0033.c) | Implement hashing techniques
+[0034](./0034.c) | Implement Merge Sort
+[0035](./0035.c) | Implement Quick Sort
 
 ## [ReadMe.md](./ReadMe.md)
