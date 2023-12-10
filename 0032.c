@@ -55,10 +55,7 @@ void dfs(int start) {
 			dfs(i);
 		}
 	}
-	if (peek() != -1)
-		pop();
-	else
-		return;
+	pop();
 }
 
 void bfs(int start) {
