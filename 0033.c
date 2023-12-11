@@ -9,29 +9,34 @@ int hashcode(int val) {
 	return val % SIZE;
 }
 
-void insert(int val) {
-	int index = hashcode(val);
+int resolve(int hashcode, int iteration) {
+	int index = (hashcode + iteration) % SIZE;
 	if (hash[index] == 0) {
-		hash[index] = val;
+		return index;
 	} else {
-		int i = 1;
-		while (hash[index + i] != 0) {
-			i++;
-		}
-		hash[index + i] = val;
+		return resolve(hashcode, iteration + 1);
 	}
 }
 
-int search(int val) {
+void insert(int val) {
 	int index = hashcode(val);
+	if (hash[index] != 0)
+		index = resolve(index, 1);
+	hash[index] = val;
+}
+
+int search(int val) {
+	int index = hashcode(val), i = 1;
 	if (hash[index] == val) {
 		return index;
 	} else {
-		int i = 1;
-		while (hash[index + i] != val) {
-			i++;
+		while (hash[index] != val && i < SIZE) {
+			index = (index + i) % SIZE;
 		}
-		return index + i;
+		if (hash[index] == val)
+			return index;
+		else
+			return -1;
 	}
 }
 
