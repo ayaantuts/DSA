@@ -32,6 +32,7 @@ int search(int val) {
 	} else {
 		while (hash[index] != val && i < SIZE) {
 			index = (index + i) % SIZE;
+			i++;
 		}
 		if (hash[index] == val)
 			return index;
