@@ -67,24 +67,6 @@ void delete_node(int val) {
 	}
 }
 
-// Totally optional
-void clearList() {
-	struct Node* ptr;
-	if (!start) {
-		printf("The list is empty\n");
-		return;
-	}
-	else {
-		ptr = start;
-		while (ptr->next != NULL) {
-			start = ptr->next;
-			free(ptr);
-			ptr = start;
-		}
-		free(ptr);
-	}
-}
-
 void print() {
 	struct Node* ptr;
 	if (!start) {
@@ -145,7 +127,5 @@ int main() {
 				choice = 6;
 		}
 	} while (choice != 6);
-	// Optional
-	clearList();
 	return 0;
 }
