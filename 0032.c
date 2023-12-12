@@ -29,19 +29,29 @@ int peek() {
 }
 
 void enqueue(int val) {
-	if (rear != SIZE - 1)
+	if (rear != SIZE - 1) {
+		if (front == -1)
+			front = 0;
 		queue[++rear] = val;
+	}
 }
 
 int dequeue() {
-	if (front != rear)
-		return queue[++front];
-	return -1;
+	int x = -1;
+	if (front != -1)
+		if (front != rear) {
+			x = queue[front];
+			front++;
+		} else {
+			x = queue[front];
+			front = rear = -1;
+		}
+	return x;
 }
 
 int peekq() {
-	if (front != rear)
-		return queue[front + 1];
+	if (front != -1)
+		return queue[front];
 	return -1;
 }
 
@@ -67,14 +77,14 @@ void bfs(int start) {
 	visited[start] = 1;
 	for (i = 0; i < NODES; i++) {
 		if (adj[start][i] == 1 && visited[i] == 0) {
-			enqueue(i);
 			visited[i] = 1;
+			enqueue(i);
 			printf("%c ", nodes[i]);
 		}
 	}
 	dequeue();
 	if (peekq() != -1)
-		bfs(dequeue());
+		bfs(peekq());
 }
 
 int main() {
