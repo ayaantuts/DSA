@@ -64,7 +64,6 @@ void addIt() {
 		t1 = t1->next;
 		t3 = t3->next;
 	}
-	
 	while (t2) {
 		t3->next = createNode(t2->coeff, t2->pow);
 		t2 = t2->next;
@@ -100,7 +99,6 @@ void subIt() {
 		t1 = t1->next;
 		t4 = t4->next;
 	}
-	
 	while (t2) {
 		t4->next = createNode(-1 * t2->coeff, t2->pow);
 		t2 = t2->next;
