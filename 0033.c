@@ -9,35 +9,32 @@ int hashcode(int val) {
 	return val % SIZE;
 }
 
-int resolve(int hashcode, int iteration) {
+int linearProbing(int hashcode, int iteration) {
 	int index = (hashcode + iteration) % SIZE;
-	if (hash[index] == 0) {
-		return index;
-	} else {
-		return resolve(hashcode, iteration + 1);
-	}
+	return index;
 }
 
 void insert(int val) {
 	int index = hashcode(val);
-	if (hash[index] != 0)
-		index = resolve(index, 1);
+	while (hash[index] != 0)
+		index = linearProbing(index, 1);
 	hash[index] = val;
 }
 
 int search(int val) {
-	int index = hashcode(val), i = 1;
-	if (hash[index] == val) {
-		return index;
+	int hashC = hashcode(val), i = 1, index;
+	if (hash[hashC] == val) {
+		return hashC;
 	} else {
 		while (hash[index] != val && i < SIZE) {
-			index = (index + i) % SIZE;
+			index = linearProbing(hashC, i);
 			i++;
 		}
-		if (hash[index] == val)
+		if (hash[index] == val) {
 			return index;
-		else
+		} else {
 			return -1;
+		}
 	}
 }
 
