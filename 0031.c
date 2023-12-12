@@ -29,7 +29,10 @@ int dequeue() {
 	sn* temp = front;
 	if (front) {
 		data = front->data;
-		front = front->next;
+		if (front == rear)
+			front = rear = NULL;
+		else
+			front = front->next;
 		free(temp);
 	}
 	return data;
