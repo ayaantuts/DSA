@@ -15,9 +15,9 @@ int linearProbing(int hashcode, int iteration) {
 }
 
 void insert(int val) {
-	int index = hashcode(val);
+	int hashC = hashcode(val), index = hashC;
 	while (hash[index] != 0)
-		index = linearProbing(index, 1);
+		index = linearProbing(hashC, 1);
 	hash[index] = val;
 }
 
