@@ -58,6 +58,7 @@ void insertBegin() {
 		start = nn;
 	else {
 		nn->next = start;
+		start->prev = nn;
 		start = nn;
 	}
 }
@@ -80,6 +81,7 @@ void insertBefore() {
 	else {
 		if (temp == start) {
 			nn->next = start;
+			start->prev = nn;
 			start = nn;
 		}
 		else {
@@ -146,7 +148,7 @@ void deleteNode() {
 		del = temp;
 		if (start->data == val) {
 			start = start->next;
-			if (start->next)
+			if (start)
 				start->prev = NULL;
 		}
 		else {
