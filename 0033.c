@@ -15,10 +15,13 @@ int linearProbing(int hashcode, int iteration) {
 }
 
 void insert(int val) {
-	int hashC = hashcode(val), index = hashC;
-	while (hash[index] != 0)
-		index = linearProbing(hashC, 1);
-	hash[index] = val;
+	int hashC = hashcode(val), index = hashC, i = 1;
+	while (hash[index] != 0 && i < SIZE)
+		index = linearProbing(hashC, i++);
+	if (i == SIZE)
+		printf("Hash table is full\n");
+	else
+		hash[index] = val;
 }
 
 int search(int val) {
