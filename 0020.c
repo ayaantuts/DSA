@@ -124,7 +124,7 @@ void deleteNode() {
 
 void mirror(sn* temp) {
 	sn* t1;
-	if (!temp) {
+	if (temp) {
 		mirror(temp->left);
 		mirror(temp->right);
 		t1 = temp->left;
