@@ -27,14 +27,6 @@ void calcIncoming() {
 				incoming[j]++;
 }
 
-// Code was not working, so debugging method
-// void printIncoming() {
-// 	int i;
-// 	printf("\nIncoming Edges: ");
-// 	for (i = 0; i < NODES; i++)
-// 		printf("%d ", incoming[i]);
-// }
-
 void sort(int node) {
 	int i;
 	printf("%c ", nodes[node]);
@@ -43,8 +35,6 @@ void sort(int node) {
 	for (i = 0; i < NODES; i++)
 		if (adj[node][i] == 1)
 			incoming[i]--;
-	// For debugging purposes
-	// printIncoming();
 }
 
 void topologicalSort() {
