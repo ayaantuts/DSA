@@ -40,5 +40,6 @@ Filename | Content
 [0034](./0034.c) | Implement Merge Sort
 [0035](./0035.c) | Implement Quick Sort
 [0036](./0036.c) | Implement Priority Queue using Linked List
+[0037](./0037.c) | Reversing a linked list (without recursion)
 
 ## [ReadMe.md](./ReadMe.md)
