@@ -16,7 +16,8 @@ int division(int val) {
 // Multiplication method
 int multiplication(int val) {
 	// A is a constant between 0 and 1 which would be given
-	float A = 0.618456, product = val * A;
+	const float A = 0.618456;
+	float product = val * A;
 	int index = ceil(SIZE * (product - floor(product)));
 	return index;
 }
