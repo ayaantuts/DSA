@@ -41,5 +41,6 @@ Filename | Content
 [0035](./0035.c) | Implement Quick Sort
 [0036](./0036.c) | Implement Priority Queue using Linked List
 [0037](./0037.c) | Reversing a linked list (without recursion)
+[0038](./0038.c) | Hashing with Chaining
 
 ## [ReadMe.md](./ReadMe.md)
