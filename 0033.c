@@ -14,6 +14,13 @@ int linearProbing(int hashcode, int iteration) {
 	return index;
 }
 
+int quadraticProbing(int hashcode, int iteration)  {
+	// c1, c2 will be given
+	const int c1 = 1, c2 = 3;
+	int index = (hashcode + c1 * iteration + c2 * iteration * iteration) % SIZE;
+	return index;
+}
+
 void insert(int val) {
 	int hashC = hashcode(val), index = hashC, i = 1;
 	while (hash[index] != 0 && i < SIZE)
