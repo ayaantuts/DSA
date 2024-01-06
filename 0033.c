@@ -1,12 +1,62 @@
 // Implement hashing techniques
 #include <stdio.h>
 #include <conio.h>
+#include <math.h>
 
-#define SIZE 10
+#define SIZE 100
 int hash[SIZE] = {0};
+// Customize the mode of hashing
+int mode = 1;
 
-int hashcode(int val) {
+// Division method
+int division(int val) {
 	return val % SIZE;
+}
+
+// Multiplication method
+int multiplication(int val) {
+	// A is a constant between 0 and 1 which would be given
+	float A = 0.618456, product = val * A;
+	int index = ceil(SIZE * (product - floor(product)));
+	return index;
+}
+
+// The Mid-Square method
+int midSquare(int val) {
+	// Digits are of 3rd last and 2nd last positions
+	int square = val * val, digits = 2, index;
+	while (digits--) {
+		square /= SIZE;
+	}
+	index = square % SIZE;
+	return index;
+}
+
+// Folding method
+int folding(int val) {
+	int sum = 0;
+	while (val > 0) {
+		sum += val % 100;
+		val /= 100;
+	}
+	return sum % SIZE;
+}
+
+// The hash function
+int hashcode(int val) {
+	switch (mode) {
+		case 1:
+			return division(val);
+		case 2:
+			return multiplication(val);
+		case 3:
+			return folding(val);
+		case 4:
+			return midSquare(val);
+		default:
+			printf("Invalid mode\n");
+			return -1;
+	}
 }
 
 int linearProbing(int hashcode, int iteration) {
@@ -51,7 +101,7 @@ int search(int val) {
 void display() {
 	int i;
 	for (i = 0; i < SIZE; i++) {
-		printf("%d ", hash[i]);
+		printf("%d: %d\n", i, hash[i]);
 	}
 	printf("\n");
 }
