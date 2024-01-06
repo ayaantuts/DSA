@@ -45,7 +45,7 @@ void topologicalSort() {
 			sort(i);
 	
 	for (i = 0; i < NODES; i++)
-		if (visited[i] == 0)
+		if (incoming[i] == 0)
 			topologicalSort();
 }
 
