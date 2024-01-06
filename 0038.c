@@ -8,7 +8,7 @@ sn {
 	sn *next;
 };
 
-sn *hashTable[10];
+sn *hashTable[10] = { NULL };
 
 int hashCode(int val) {
 	int index = val % 10;

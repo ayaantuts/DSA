@@ -4,7 +4,7 @@
 #include <math.h>
 
 #define SIZE 100
-int hash[SIZE] = {0};
+int hash[SIZE] = { -1 };
 // Customize the mode of hashing
 int mode = 1;
 
@@ -74,7 +74,7 @@ int quadraticProbing(int hashcode, int iteration)  {
 
 void insert(int val) {
 	int hashC = hashcode(val), index = hashC, i = 1;
-	while (hash[index] != 0 && i < SIZE)
+	while (hash[index] != -1 && i < SIZE)
 		index = linearProbing(hashC, i++);
 	if (i == SIZE)
 		printf("Hash table is full\n");
@@ -91,11 +91,10 @@ int search(int val) {
 			index = linearProbing(hashC, i);
 			i++;
 		}
-		if (hash[index] == val) {
+		if (hash[index] == val)
 			return index;
-		} else {
+		else
 			return -1;
-		}
 	}
 }
 
