@@ -20,11 +20,11 @@ void insert(int val) {
 	sn *newNode = (sn *)malloc(sizeof(sn)), *temp;
 	newNode->data = val;
 	newNode->next = NULL;
-	if (hashTable[hash] == NULL) {
+	if (!hashTable[hash]) {
 		hashTable[hash] = newNode;
 	} else {
 		temp = hashTable[hash];
-		while (temp->next != NULL) {
+		while (temp->next) {
 			temp = temp->next;
 		}
 		temp->next = newNode;
