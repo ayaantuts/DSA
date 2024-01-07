@@ -3,6 +3,7 @@
 #include<conio.h>
 #define NODES 8
 int visited[NODES] = { 0 };
+int incoming[NODES] = { 0 };
 char nodes[NODES] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' };
 int adj[NODES][NODES] = { 0 };
 /*
@@ -18,8 +19,6 @@ int adj[NODES][NODES] = {
 	{0, 0, 0, 0, 0, 1, 1, 0}
 };
 */
-int decOrder[NODES] = { 0 };
-int incoming[NODES] = { 0 };
 
 void calcIncoming() {
 	int i, j;
@@ -51,7 +50,7 @@ void topologicalSort() {
 
 int main() {
 	int i, j;
-	printf("Enter the adjacency matrix: ");
+	printf("Enter the adjacency matrix: \n");
 	for (i = 0; i < NODES; i++)
 		for (j = 0; j < NODES; j++)
 			scanf("%d", &adj[i][j]);
