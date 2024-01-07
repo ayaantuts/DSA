@@ -42,5 +42,6 @@ Filename | Content
 [0036](./0036.c) | Implement Priority Queue using Linked List
 [0037](./0037.c) | Reversing a linked list (without recursion)
 [0038](./0038.c) | Hashing with Chaining
+[0039](./0039.c) | Check if an expression has balanced paranthesis or not
 
 ## [ReadMe.md](./ReadMe.md)
