@@ -11,7 +11,7 @@ void enqueue(int val) {
 		printf("Queue is full\n");
 	} else {
 		if (front == -1) {
-			front = 0;
+			front++;
 		}
 		rear++;
 		queue[rear] = val;
@@ -26,8 +26,7 @@ int dequeue() {
 	else {
 		x = queue[front];
 		if (rear == front) {
-			rear = -1;
-			front = -1;
+			rear = front = -1;
 		}
 		else {
 			front++;
@@ -47,8 +46,7 @@ int main() {
 	do {
 		printf("\n\n1. Enqueue\n2. Dequeue\n3. Display\n4. Exit\nEnter your choice: ");
 		scanf("%d", &choice);
-		switch (choice)
-		{
+		switch (choice) {
 		case 1:
 			printf("Enter the value you want to enqueue: ");
 			scanf("%d", &val);
