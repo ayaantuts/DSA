@@ -31,22 +31,16 @@ void insert(int val) {
 	}
 }
 
-void deleteVal(int val) {
+void searchVal(int val) {
 	int hash = hashCode(val);
-	sn *temp = hashTable[hash], *prev = NULL;
+	sn *temp = hashTable[hash];
 	while (temp && temp->data != val) {
-		prev = temp;
 		temp = temp->next;
 	}
-	if (!temp) {
+	if (temp)
+		printf("Value found\n");
+	else
 		printf("Value not found\n");
-		return;
-	}
-	if (!prev) {
-		hashTable[hash] = temp->next;
-	} else {
-		prev->next = temp->next;
-	}
 }
 
 void display() {
@@ -65,7 +59,7 @@ void display() {
 int main() {
 	int choice, val;
 	while (1) {
-		printf("1. Insert\n2. Delete\n3. Display\n4. Exit\nEnter your choice: ");
+		printf("1. Insert\n2. Search\n3. Display\n4. Exit\nEnter your choice: ");
 		scanf("%d", &choice);
 		switch (choice) {
 			case 1:
@@ -74,9 +68,9 @@ int main() {
 				insert(val);
 				break;
 			case 2:
-				printf("Enter value to delete: ");
+				printf("Enter value to search: ");
 				scanf("%d", &val);
-				deleteVal(val);
+				searchVal(val);
 				break;
 			case 3:
 				display();
