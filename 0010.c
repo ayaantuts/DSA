@@ -27,10 +27,15 @@ struct Node* createLL(struct Node* start) {
 		newnode = createNode(coeff, pow);
 		if (!start)
 			start = newnode;
-		else
+		else {
+			// temp->next = newnode;
+			temp = start;
+			while (temp->next)
+				temp = temp->next;
 			temp->next = newnode;
+		}
 		
-		temp = newnode;
+		// temp = newnode;
 		newnode->next = NULL;
 	}
 	return start;
