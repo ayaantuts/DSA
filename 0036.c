@@ -22,13 +22,13 @@ void create() {
 		newnode = (sn *)malloc(sizeof(sn));
 		newnode->data = data;
 		newnode->priority = priority;
-		if (!head || priority < head->priority) {
+		if (!head || priority > head->priority) {
 			newnode->next = head;
 			head = newnode;
 		}
 		else {
 			temp = head;
-			while (temp->next && temp->next->priority <= priority)
+			while (temp->next && temp->next->priority > priority)
 				temp = temp->next;
 			newnode->next = temp->next;
 			temp->next = newnode;
@@ -57,11 +57,11 @@ void enqueue() {
 	newnode->data = data;
 	newnode->priority = priority;
 	newnode->next = NULL;
-	if (!head)
+	if (!head || priority > head->priority)
 		head = newnode;
 	else {
 		temp = head;
-		while (temp->next && temp->next->priority <= priority)
+		while (temp->next && temp->next->priority > priority)
 			temp = temp->next;
 		newnode->next = temp->next;
 		temp->next = newnode;
