@@ -29,10 +29,11 @@ int peek() {
 }
 
 void enqueue(int val) {
-	if (rear != SIZE - 1)
+	if (rear != SIZE - 1) {
 		queue[++rear] = val;
-	if (front == -1)
-		front = 0;
+		if (front == -1)
+			front = 0;
+	}
 }
 
 int dequeue() {

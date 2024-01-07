@@ -20,10 +20,11 @@ int queue[SIZE];
 int front = -1, rear = -1;
 
 void enqueue(int val) {
-	if (rear != SIZE - 1)
+	if (rear != SIZE - 1) {
 		queue[++rear] = val;
-	if (front == -1)
-		front++;
+		if (front == -1)
+			front++;
+	}
 }
 
 int dequeue() {
