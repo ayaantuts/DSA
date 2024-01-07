@@ -29,12 +29,11 @@ void enqueue(int val) {
 int dequeue() {
 	int x = -1;
 	if (front != -1) {
-    	if (front == rear) {
-    		x = queue[front];
+		x = queue[front];
+    	if (front == rear)
     		front = rear = -1;
-    	}
     	else 
-    	    x = queue[front++];
+    	    front++;
 	}
 	return x;
 }
