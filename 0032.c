@@ -69,17 +69,13 @@ void dfs(int start) {
 }
 
 void bfs(int start) {
-	int i, j;
-	if (visited[start] == 0) {
-		enqueue(start);
-		printf("%c ", nodes[start]);
-	}
+	int i;
 	visited[start] = 1;
+	printf("%c ", nodes[start]);
 	for (i = 0; i < NODES; i++) {
 		if (adj[start][i] == 1 && visited[i] == 0) {
-			visited[i] = 1;
 			enqueue(i);
-			printf("%c ", nodes[i]);
+			visited[i] = 1;
 		}
 	}
 	dequeue();
@@ -109,6 +105,7 @@ int main() {
 				break;
 			case 2:
 				printf("BFS: ");
+				enqueue(0);
 				bfs(0);
 				printf("\n");
 				break;
