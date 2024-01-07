@@ -9,7 +9,7 @@ sn {
 	int data;
 	int priority;
 	sn *next;
-} *front = NULL;
+} *head = NULL;
 
 void create() {
 	sn *temp, *newnode;
@@ -22,12 +22,12 @@ void create() {
 		newnode = (sn *)malloc(sizeof(sn));
 		newnode->data = data;
 		newnode->priority = priority;
-		if (!front || priority < front->priority) {
-			newnode->next = front;
-			front = newnode;
+		if (!head || priority < head->priority) {
+			newnode->next = head;
+			head = newnode;
 		}
 		else {
-			temp = front;
+			temp = head;
 			while (temp->next && temp->next->priority <= priority)
 				temp = temp->next;
 			newnode->next = temp->next;
@@ -38,10 +38,10 @@ void create() {
 
 void display() {
 	sn *temp;
-	if (!front)
+	if (!head)
 		printf("Queue is empty\n");
 	else {
-		temp = front;
+		temp = head;
 		while (temp) {
 			printf("%d with priority %d\n", temp->data, temp->priority);
 			temp = temp->next;
@@ -57,10 +57,10 @@ void enqueue() {
 	newnode->data = data;
 	newnode->priority = priority;
 	newnode->next = NULL;
-	if (!front)
-		front = newnode;
+	if (!head)
+		head = newnode;
 	else {
-		temp = front;
+		temp = head;
 		while (temp->next && temp->next->priority <= priority)
 			temp = temp->next;
 		newnode->next = temp->next;
@@ -70,11 +70,11 @@ void enqueue() {
 
 void dequeue() {
 	sn *temp;
-	if (!front)
+	if (!head)
 		printf("Queue is empty\n");
 	else {
-		temp = front;
-		front = front->next;
+		temp = head;
+		head = head->next;
 		printf("%d with priority %d is deleted\n", temp->data, temp->priority);
 		free(temp);
 	}
