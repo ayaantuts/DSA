@@ -45,29 +45,45 @@ int peek() {
 	return -1;
 }
 
+// void bfs(int start) {
+// 	int i, j;
+// 	if (visited[start] == 0) {
+// 		enqueue(start);
+// 		printf("%c ", nodes[start]);
+// 	}
+// 	visited[start] = 1;
+// 	for (i = 0; i < NODES; i++) {
+// 		if (adj[start][i] == 1 && visited[i] == 0) {
+// 			enqueue(i);
+// 		}
+// 	}
+// 	dequeue();
+// 	if (peek() != -1)
+// 		bfs(peek());
+// 	else
+// 		return;
+// }
+
 void bfs(int start) {
-	int i, j;
-	if (visited[start] == 0) {
-		enqueue(start);
-		printf("%c ", nodes[start]);
-	}
+	int i;
 	visited[start] = 1;
+	printf("%c ", nodes[start]);
 	for (i = 0; i < NODES; i++) {
 		if (adj[start][i] == 1 && visited[i] == 0) {
 			enqueue(i);
+			visited[i] = 1;
 		}
 	}
 	dequeue();
 	if (peek() != -1)
 		bfs(peek());
-	else
-		return;
 }
 
 int main() {
-	clrscr();
+	// clrscr();
 	printf("BFS: ");
+	enqueue(0);
 	bfs(0);
-	getch();
+	// getch();
 	return 0;
 }
