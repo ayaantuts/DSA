@@ -87,7 +87,7 @@ void print() {
 
 int main() {
 	start = NULL;
-	int choice, data;
+	int choice, data, num;
 	do {
 		printf("\n1. Insert Begin\n2. Insert Before\n3. Insert after\n4. Delete a node\n5. Print\n6. Exit\n\nEnter a choice: ");
 		scanf("%d", &choice);
@@ -101,7 +101,6 @@ int main() {
 				printf("Enter data: ");
 				scanf("%d", &data);
 				printf("Enter number before which you want to insert: ");
-				int num;
 				scanf("%d", &num);
 				insert_before(data, num);
 				break;
